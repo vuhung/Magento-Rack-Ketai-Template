@@ -31,7 +31,9 @@
                     <?php echo $this->helper('review/product')->getSummaryHtml($_item, 'short') ?>
                     <?php echo $this->helper('catalog/product')->getPriceHtml($_item) ?>
                     <?php if($_item->isSaleable()): ?>
-                    <button class="form-button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button><br/>
+                    <form method="post" action="<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item)?>">
+                         <input type="submit" name="submit" class="form-button" value="<?php echo $this->__('Add to Cart') ?>"/><br/>
+                    </form>
                     <?php else: ?>
                     <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
                     <?php endif; ?>
@@ -77,7 +79,9 @@
                 <td>
                     <?php echo $this->helper('catalog/product')->getPriceHtml($_item) ?>
                     <?php if($_item->isSaleable()): ?>
-                    <button class="form-button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button><br/>
+                    <form method="post" action="<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>">
+                    <input type="submit" class="form-button" value="<?php echo $this->__('Add to Cart') ?>" name="submit"/><br/>
+                    </form>
                     <?php else: ?>
                     <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
                     <?php endif; ?>
@@ -90,6 +94,7 @@
         </tbody>
     </table>
     <div class="button-set">
+    <?//todo: change to back link?>
         <button class="form-button" onclick="window.close();window.opener.focus();"><span><?php echo $this->__('Close Window') ?></span></button>
     </div>
 </div>

@@ -152,6 +152,14 @@
     </ketai_checkout_overview>
 
     <ketai_checkout_success>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="ketai/checkout_success" name="ketai.checkout.success" template="ketai/checkout/success.phtml"/>
+        </reference>
+
+
     </ketai_checkout_success>
 
 </layout>

@@ -76,14 +76,10 @@
         </li>
         <?php endforeach; ?>
     </ul>
-    <script type="text/javascript">decorateList('advanced-search-list')</script>
 </fieldset>
 <div class="button-set">
     <p class="required">* <?php echo $this->__('Required Fields') ?></p>
-    <button class="form-button" type="submit" name="search" id="search"><span><?php echo $this->__('Search') ?></span></button>
+    <input class="form-button" type="submit" name="search" id="search" value="<?php echo $this->__('Search') ?>" />
 </div>
 </form>
-<script type="text/javascript">
-    var dataForm = new VarienForm('form-validate', true);
-</script>
 <br />

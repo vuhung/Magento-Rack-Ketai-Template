@@ -16,7 +16,9 @@
             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
             <?php echo $this->getPriceHtml($_product, true, '-new') ?>
             <?php if($_product->isSaleable()): ?>
-            <button type="button" class="form-button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button>
+            <form method="post" action="<?php echo $this->getAddToCompareUrl($_product) ?>">
+                <input type="submit" name="submit" class="form-button" value="<?php echo $this->__('Add to Cart') ?>"/>
+            </form>
             <?php else: ?>
             <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
             <?php endif; ?>
