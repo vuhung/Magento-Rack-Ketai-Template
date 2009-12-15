@@ -10,12 +10,9 @@
 <div class="content button-set">
     <p class="left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart', array('_secure'=>false)) ?>"><?php echo $this->__('Edit Your Cart') ?></a></p><br />
     <p class="a-center" style="text-align:center;">
-        <span id="review-please-wait" style="display:none;padding:5px 0;" class="opc-please-wait">
-            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" /> &nbsp; <?php echo $this->__('Submitting order information...') ?> &nbsp;
-        </span>
         <span id="review-buttons-container" class="a-center">
             <form method="post" action="<?php echo $this->getSaveUrl()?>" >
-                <input type="image" src="<?php echo $this->getSkinUrl('images/btn_place_order.gif') ?>"  value="<?php echo $this->__('Place Order') ?>" />
+                <input type="submit" value="<?php echo $this->__('Place Order') ?>" />
             </form>
         </span>
     </p>
