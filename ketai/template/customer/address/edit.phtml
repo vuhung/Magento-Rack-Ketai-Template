@@ -1,31 +1,5 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category   design_default
- * @package    Mage
- * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
- * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php
-/**
  * Edit customer address template
  *
  * @see Mage_Customer_Block_Address_Edit
@@ -47,14 +21,14 @@
             <ul class="form-list">
                 <li>
                     <div class="col2-alt-set">
-                        <div class="col-1"><label for="firstname"><?php echo $this->__('First Name') ?> <span class="required">*</span></label></div>
-                        <div class="col-2"><input type="text" name="firstname" id="firstname" title="<?php echo $this->__('First Name') ?>" value="<?php echo ($this->getAddress()->getFirstname()) ? $this->htmlEscape($this->getAddress()->getFirstname()) : $this->htmlEscape($this->getCustomer()->getFirstname()) ?>" class="required-entry input-text" /></div>
+                        <div class="col-1"><label for="lastname"><?php echo $this->__('Last Name') ?> <span class="required">*</span></label></div>
+                        <div class="col-2"><input type="text" name="lastname" id="lastname" title="<?php echo $this->__('Last Name') ?>" value="<?php echo ($this->getAddress()->getLastname()) ? $this->htmlEscape($this->getAddress()->getLastname()) : $this->htmlEscape($this->getCustomer()->getLastname()) ?>" class="required-entry input-text" /></div>
                     </div><div class="clear"></div>
                 </li>
                 <li>
                     <div class="col2-alt-set">
-                        <div class="col-1"><label for="lastname"><?php echo $this->__('Last Name') ?> <span class="required">*</span></label></div>
-                        <div class="col-2"><input type="text" name="lastname" id="lastname" title="<?php echo $this->__('Last Name') ?>" value="<?php echo ($this->getAddress()->getLastname()) ? $this->htmlEscape($this->getAddress()->getLastname()) : $this->htmlEscape($this->getCustomer()->getLastname()) ?>" class="required-entry input-text" /></div>
+                        <div class="col-1"><label for="firstname"><?php echo $this->__('First Name') ?> <span class="required">*</span></label></div>
+                        <div class="col-2"><input type="text" name="firstname" id="firstname" title="<?php echo $this->__('First Name') ?>" value="<?php echo ($this->getAddress()->getFirstname()) ? $this->htmlEscape($this->getAddress()->getFirstname()) : $this->htmlEscape($this->getCustomer()->getFirstname()) ?>" class="required-entry input-text" /></div>
                     </div><div class="clear"></div>
                 </li>
                 <li>
@@ -102,13 +76,13 @@
                     <div class="col2-alt-set">
                         <div class="col-1"><label for="region_id"><?php echo $this->__('State/Province') ?> <span class="required">*</span></label></div>
                         <div class="col-2 select190inner">
-                            <select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none">
+                            <select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select">
                                 <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                                <?php $_region = Zend_Json::decode($this->helper('directory')->getRegionJson()) ?>
+                                <?php foreach($_region['JP'] as $_region_id => $_regiondata): ?>
+                                <option value="<?php echo $_region_id ?>"><?php echo $_regiondata['name'] ?></option>
+                                <?php endforeach; ?> 
                             </select>
-                            <script type="text/javascript">
-                                $('region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
-                            </script>
-                            <input type="text" id="region" name="region" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" style="display:none" />
                         </div>
                     </div><div class="clear"></div>
                 </li>
@@ -159,7 +133,3 @@
         </div><div class="clear"></div>
     </form>
 </div><br /><br />
-<script type="text/javascript">
-    var dataForm = new VarienForm('form-validate', true);
-    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
-</script>
