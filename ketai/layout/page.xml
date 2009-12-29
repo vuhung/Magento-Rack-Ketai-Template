@@ -9,10 +9,9 @@ Default layout, loads most of the pages
 				<action method="addCss"><stylesheet>css/iphone.css</stylesheet></action>
             </block>
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
-            <block type="page/html_header" name="header" as="header">
-				<block name="user_links" as="user_links" type="page/template_links" />
-                <block type="page/template_links" name="top.links" as="topLinks"/>
-            </block>
+            <block type="page/html_header" name="header" as="header"/>
+			<block name="user_links" as="user_links" type="page/template_links" />
+            <block type="page/template_links" name="top.links" as="topLinks"/>
             <block type="core/messages" name="global_messages" as="global_messages"/>
             <block type="core/messages" name="messages" as="messages"/>
             <block type="core/text_list" name="content" as="content"/>
