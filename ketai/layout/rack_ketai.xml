@@ -12,7 +12,6 @@
     <ketai_cart_index>
         <remove name="right"/>
         <remove name="left"/>
-        <!-- Mage_Checkout -->
         <reference name="root">
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
@@ -23,17 +22,17 @@
                 <action method="chooseTemplate"/>
 
                 <block type="core/text_list" name="checkout.cart.top_methods" as="top_methods">
-                    <block type="ketai/checkout_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+                    <block type="ketai/checkout_link" name="checkout.cart.methods.onepage" template="checkout/link.phtml"/>
                 </block>
 
                 <block type="core/text_list" name="checkout.cart.methods" as="methods">
-                    <block type="ketai/checkout_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
-                    <block type="ketai/checkout_link" name="checkout.cart.methods.multishipping" template="checkout/multishipping/link.phtml"/>
+                    <block type="ketai/checkout_link" name="checkout.cart.methods.onepage" template="checkout/link.phtml"/>
                 </block>
-
+                <!--
                 <block type="checkout/cart_coupon" name="checkout.cart.coupon" as="coupon" template="checkout/cart/coupon.phtml"/>
                 <block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="checkout/cart/shipping.phtml"/>
                 <block type="checkout/cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/>
+                -->
             </block>
         </reference>
     </ketai_cart_index>
