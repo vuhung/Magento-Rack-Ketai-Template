@@ -6,11 +6,16 @@
  */
 ?>
 <div class="header-nav-container">
+    <div><?php echo $this->__('Category')?></div>
     <div class="header-nav">
-        <ul id="nav">
+        <?php $count = $this->getStoreCategories()->count(); ?>
         <?php foreach ($this->getStoreCategories() as $_category): ?>
-            <?php echo $this->drawItemSingle($_category) ?>
+            <?php $count--;?>
+            <?php if($count != 0): ?>
+                <?php echo $this->drawItemSingle($_category, 0, true) ?>
+            <?php else: ?>
+                <?php echo $this->drawItemSingle($_category, 0, false) ?>
+            <?php endif ?>        
         <?php endforeach ?>
-        </ul>
     </div>
 </div>
