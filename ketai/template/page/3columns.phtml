@@ -5,6 +5,9 @@
 </head>
 <body home="index.php" class="mage-iphone" onload="setTimeout(scrollTo, 0, 0, 1)">
 <?php echo $this->getChildHtml('global_notices') ?>
+<div class="header">
+    <?php echo $this->getChildHtml('header') ?>
+</div>
 <div class="middle-container">
     <div class="middle col-1-layout">
         <div style="margin-bottom:7px;">
@@ -16,9 +19,8 @@
         </div>
     </div>
 </div>
-<div class="header">
-    <?php echo $this->getChildHtml('header') ?>
-</div>
+<?php echo $this->getChildHtml('user_links')?>
+<?php echo $this->getChildHtml('topLinks')?>
 <div class="footer-container">
     <div class="footer">
         <?php echo $this->getChildHtml('footer') ?>
