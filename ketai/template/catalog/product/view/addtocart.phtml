@@ -1,8 +1,6 @@
 <?php $_product = $this->getProduct() ?>
 
 <?php if($_product->isSaleable()): ?>
-    <fieldset class="add-to-cart-box">
-        <legend><?php echo $this->__('Add Items to Cart') ?></legend>
         <?php if(!$_product->isGrouped()): ?>
         <span class="qty-box"><label for="qty"><?php echo $this->__('Qty') ?>:</label>
         <select name="qty" class="input-text qty" id="qty">
@@ -15,6 +13,7 @@
             <option value="<?php echo $i ?>"><?php echo $i ?></option>
             <?php endfor;?>
         <?php endif; ?>
+        </select>
+        <br/>
         <input type="submit" class="form-button" value="<?php echo $this->__('Add to Cart') ?>" />
-    </fieldset>
 <?php endif; ?>

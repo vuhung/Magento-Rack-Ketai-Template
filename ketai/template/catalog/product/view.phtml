@@ -14,6 +14,18 @@
             <div class="col2-alt-set">
                 <div class="col-1">
                     <div class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(85, 85); ?>" width="85" height="85" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></div>
+                </div>
+                <div class="col-2">
+                    <h3 class="product-name"><?php echo $this->htmlEscape($_product->getName()) ?></h3>
+                    <?php echo $this->getChildHtml('product_type_data') ?>
+                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                        <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    <div class="clear"></div>
+                   <?php if (!$this->hasOptions()):?>
+                        <?php if($_product->isSaleable()): ?>
+                            <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
                     <?php if($_product->isSaleable()): ?>
                         <?php if ($this->helper('wishlist')->isAllow()) : ?>
                             <div style="padding:7px 0 5px 8px;"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><?php echo $this->__('Add to Wishlist') ?></a></div>
@@ -22,27 +34,8 @@
                     <?php if ($this->canEmailToFriend()): ?>
                         <div style="padding:0 0 5px 6px;"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></div>
                     <?php endif; ?>
-                </div>
-                <div class="col-2">
-                    <h3 class="product-name"><?php echo $this->htmlEscape($_product->getName()) ?></h3>
-                    <?php echo $this->getChildHtml('product_type_data') ?>
-
-                    <fieldset class="no-display">
-                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
-                        <input type="hidden" name="related_product" id="related-products-field" value="" />
-                    </fieldset>
-
-                    <div class="clear"></div>
-
-
-                   <?php if (!$this->hasOptions()):?>
-                        <?php if($_product->isSaleable()): ?>
-                            <?php echo $this->getChildHtml('addtocart') ?>
-                        <?php endif; ?>
-                    <?php endif; ?>
 
                     <?php echo $this->getChildHtml('other');?>
-
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
                     <?php endif;?>
