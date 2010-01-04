@@ -4,8 +4,6 @@
    <p><?php echo $this->__('Select a shipping address from your address book or enter a new address.') ?></p>
    <p class="select300inner"><?php echo $this->getAddressesHtmlRadio('shipping') ?></p>
 <?php endif ?>
-
-<fieldset class="group-select" id="shipping-new-address-form">
 <input type="hidden" name="shipping[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="shipping:address_id" />
     <ul class="form-list">
         <li>
@@ -112,7 +110,6 @@
             <input type="hidden" name="shipping[save_in_address_book]" value="1" />
         <?php endif;?>
     </ul>
-</fieldset>
 <p><input type="checkbox" name="shipping[same_as_billing]" id="shipping:same_as_billing" value="1" <?php if($this->getAddress()->getSameAsBilling()): ?>checked="checked"<?php endif ?>  /> &nbsp;<label for="shipping:same_as_billing"><?php echo $this->__('Use Billing Address') ?></label></p>
 
 <div class="col2-alt-set button-set">
