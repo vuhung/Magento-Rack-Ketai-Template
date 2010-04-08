@@ -15,27 +15,7 @@
             <?php endif; ?>
         </div>
         <div class="col-2 page-num a-right">
-            <?php if($this->getLastPageNum()>1): ?>
-                    <?php if (!$this->isFirstPage()): ?>
-                            <a href="<?php echo $this->getPreviousPageUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_left.gif') ?>" alt="<?php echo $this->__('Previous') ?>" /></a>
-                    <?php endif ?>
-                    <?php $pagenum = 0; ?>
-                    <?php foreach ($this->getPages() as $_page): ?>
-                        <?php $pagenum++; ?>
-                        <?php if ($this->isPageCurrent($_page)): ?>
-                            <span class="on"><?php echo $_page ?></span>
-                        <?php else: ?>
-                            <a href="<?php echo $this->getPageUrl($_page) ?>"><?php echo $_page ?></a>
-                        <?php endif ?>
-                        <?php if ($pagenum != count($this->getPages())): ?>
-                        ,
-                        <?php endif ?>
-                    <?php endforeach; ?>
-                    <?php if (!$this->isLastPage()): ?>
-                            <a href="<?php echo $this->getNextPageUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_right.gif') ?>" alt="<?php echo $this->__('Next') ?>" /></a>
-                    <?php endif ?>
-                <strong><?php echo $this->__('Page:') ?></strong>&nbsp;
-              <?php endif ?>
+            <?php echo $this->getPagerHtml() ?>
         </div><div class="clear"></div>
     </div>
 <?php endif ?>

@@ -3,9 +3,6 @@
 <div id="checkout-review-load" class="default-box">
     <?php echo $this->getChildHtml('info') ?>
 </div>
-<?php echo $this->getQuote()->getBillingAddress()->format('html');?>
-<?php echo $this->getQuote()->getShippingAddress()->format('html'); ?>
-<?php echo $this->getQuote()->getPayment();?>
 <?php echo $this->getChildHtml('agreements') ?>
 <div class="content button-set">
     <p class="left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart', array('_secure'=>false)) ?>"><?php echo $this->__('Edit Your Cart') ?></a></p><br />
