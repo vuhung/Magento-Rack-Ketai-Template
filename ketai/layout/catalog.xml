@@ -49,7 +49,8 @@ Category default layout
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
-						<action method="addPagerLimit"><mode>list</mode><limit>5</limit></action>
+						<block type="catalog/product_list_toolbar_pager" name="product_list_toolbar_pager"/>
+                        <action method="addPagerLimit"><mode>list</mode><limit>5</limit></action>
                     </block>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
                 </block>
@@ -69,6 +70,7 @@ Category layered navigation layout
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                        <block type="catalog/product_list_toolbar_pager" name="product_list_toolbar_pager"/>
 							<action method="addPagerLimit"><mode>list</mode><limit>5</limit></action>
                     </block>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
